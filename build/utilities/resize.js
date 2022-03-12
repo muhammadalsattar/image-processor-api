@@ -40,6 +40,12 @@ const path = require("path");
 const sharp_1 = __importDefault(require("sharp"));
 const resize = (filename, width, height) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        yield fs.access(path.join(process.cwd(), "./assets/thumbnail/"));
+    }
+    catch (e) {
+        fs.mkdir(path.join(process.cwd(), "./assets/thumbnail/"));
+    }
+    try {
         const fullImage = yield fs.readFile(path.join(process.cwd(), `./assets/full/${filename}.jpg`));
         yield (0, sharp_1.default)(fullImage)
             .resize(width, height)
@@ -47,8 +53,8 @@ const resize = (filename, width, height) => __awaiter(void 0, void 0, void 0, fu
             .toFile(path.join(process.cwd(), `./assets/thumbnail/${filename}-${width}x${height}.jpg`));
     }
     catch (e) {
-        return 'Something went wrong!';
+        return "Something went wrong!";
     }
 });
-resize('fjord', 300, 300);
+resize("fjord", 300, 300);
 exports.default = resize;

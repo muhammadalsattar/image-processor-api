@@ -15,21 +15,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../app"));
 const request = (0, supertest_1.default)(app_1.default);
-describe('App endpoints scenarios', function () {
-    it('Should response with 404 given unknown filename', () => __awaiter(this, void 0, void 0, function* () {
-        const response = yield request.get('/images/unknown');
+describe("App endpoints scenarios", function () {
+    it("Should response with 404 given unknown filename", () => __awaiter(this, void 0, void 0, function* () {
+        const response = yield request.get("/images/unknown");
         expect(response.status).toBe(404);
     }));
-    it('Should response with 200 given a valid filename', () => __awaiter(this, void 0, void 0, function* () {
-        const response = yield request.get('/images/fjord');
+    it("Should response with 200 given a valid filename", () => __awaiter(this, void 0, void 0, function* () {
+        const response = yield request.get("/images/fjord");
         expect(response.status).toBe(200);
     }));
-    it('Should response with the correct file for the default route', () => __awaiter(this, void 0, void 0, function* () {
-        const response = yield request.get('/');
-        expect(response.headers['content-type']).toBe('text/html; charset=UTF-8');
+    it("Should response with the correct file for the default route", () => __awaiter(this, void 0, void 0, function* () {
+        const response = yield request.get("/");
+        expect(response.headers["content-type"]).toBe("text/html; charset=UTF-8");
     }));
-    it('Should response with the correct file for the rest of the routes', () => __awaiter(this, void 0, void 0, function* () {
-        const response = yield request.get('/*');
-        expect(response.headers['content-type']).toBe('text/html; charset=UTF-8');
+    it("Should response with the correct file for the rest of the routes", () => __awaiter(this, void 0, void 0, function* () {
+        const response = yield request.get("/*");
+        expect(response.headers["content-type"]).toBe("text/html; charset=UTF-8");
     }));
 });

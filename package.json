@@ -30,7 +30,7 @@
     "start": "nodemon build/app.js",
     "tsc": "tsc --project tsconfig.json",
     "prettier": "prettier --write .",
-    "eslint": "eslint src/*.ts src/**/*.ts",
+    "eslint": "eslint --fix src/*.ts src/**/*.ts",
     "test": "npx jasmine"
   },
   "author": "",

@@ -8,6 +8,12 @@ const resize = async (
     height: number
 ): Promise<unknown> => {
     try {
+        await fs.access(path.join(process.cwd(), "./assets/thumbnail/"));
+    } catch (e) {
+        fs.mkdir(path.join(process.cwd(), "./assets/thumbnail/"));
+    }
+
+    try {
         const fullImage = await fs.readFile(
             path.join(process.cwd(), `./assets/full/${filename}.jpg`)
         );

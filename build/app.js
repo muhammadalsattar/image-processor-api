@@ -41,10 +41,10 @@ const fs = __importStar(require("fs/promises"));
 const resize_1 = __importDefault(require("./utilities/resize"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
-app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(process.cwd(), './public/index.html'));
+app.get("/", (req, res) => {
+    res.sendFile(path_1.default.join(process.cwd(), "./public/index.html"));
 });
-app.get('/images/:filename', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get("/images/:filename", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filename = req.params.filename;
     const width = parseInt(req.query.width);
     const height = parseInt(req.query.width);
@@ -52,7 +52,9 @@ app.get('/images/:filename', (req, res) => __awaiter(void 0, void 0, void 0, fun
         yield fs.access(path_1.default.join(process.cwd(), `./assets/full/${filename}.jpg`));
     }
     catch (e) {
-        return res.status(404).sendFile(path_1.default.join(process.cwd(), './public/404.html'));
+        return res
+            .status(404)
+            .sendFile(path_1.default.join(process.cwd(), "./public/404.html"));
     }
     if (!width && !height) {
         res.sendFile(path_1.default.join(process.cwd(), `./assets/full/${filename}.jpg`));
@@ -67,8 +69,8 @@ app.get('/images/:filename', (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.sendFile(filePath);
     }
 }));
-app.get('/*', (req, res) => {
-    res.sendFile(path_1.default.join(process.cwd(), './public/404.html'));
+app.get("/*", (req, res) => {
+    res.sendFile(path_1.default.join(process.cwd(), "./public/404.html"));
 });
 app.listen(port, () => {
     console.log(`Server is running! listening on port: ${port}`);

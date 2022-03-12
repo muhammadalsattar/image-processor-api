@@ -13,13 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const resize_1 = __importDefault(require("../../utilities/resize"));
-describe('Resize function scenarios', () => {
-    it('Should resolve given right params', () => __awaiter(void 0, void 0, void 0, function* () {
-        const promise = (0, resize_1.default)('fjord', 300, 300);
+describe("Resize function scenarios", () => {
+    it("Should resolve given right params", () => __awaiter(void 0, void 0, void 0, function* () {
+        const promise = (0, resize_1.default)("fjord", 300, 300);
         yield expectAsync(promise).toBeResolved();
     }));
-    it('Should return proper error message when something goes wrong', () => __awaiter(void 0, void 0, void 0, function* () {
-        const promise = yield (0, resize_1.default)('filename', 300, 300);
-        expect(promise).toBe('Something went wrong!');
+    it("Should return proper error message when something goes wrong", () => __awaiter(void 0, void 0, void 0, function* () {
+        const promise = yield (0, resize_1.default)("filename", 300, 300);
+        expect(promise).toBe("Something went wrong!");
     }));
 });
