@@ -21,6 +21,6 @@
 `localhost:3000/images/:image`
 #### this endpoint renders your image if it exists
 
-`localhost:3000/images/:image?width=300&height=300`
 
+`localhost:3000/images/:image?width=&height=`
 #### this endpoint processes your image then save it to local machine to `assets/thumbnail/` directory
