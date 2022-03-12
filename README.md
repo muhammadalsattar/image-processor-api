@@ -10,7 +10,7 @@
 
 ### Usage
 
-### After cloning project, run `npm i` to install project dependencies
+#### After cloning project, run `npm i` to install project dependencies
 #### use `npm run build` to build project js code
 #### use `npm run start` to start server
 
