@@ -1,0 +1,9 @@
+build
+assets
+node_modules
+spec
+.eslintrc.json
+.prettierrc.json
+package.json
+tsconfig.json
+package-lock.json
