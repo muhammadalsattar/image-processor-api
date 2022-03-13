@@ -47,9 +47,8 @@ const resize = (filename, width, height) => __awaiter(void 0, void 0, void 0, fu
     }
     try {
         const fullImage = yield fs.readFile(path.join(process.cwd(), `./assets/full/${filename}.jpg`));
-        yield (0, sharp_1.default)(fullImage)
-            .resize(width, height)
-            .jpeg({ quality: 100 })
+        return yield (0, sharp_1.default)(fullImage)
+            .resize(width, height, { fit: "fill" })
             .toFile(path.join(process.cwd(), `./assets/thumbnail/${filename}-${width}x${height}.jpg`));
     }
     catch (e) {

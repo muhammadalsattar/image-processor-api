@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 app.get("/images/:filename", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filename = req.params.filename;
     const width = parseInt(req.query.width);
-    const height = parseInt(req.query.width);
+    const height = parseInt(req.query.height);
     try {
         yield fs.access(path_1.default.join(process.cwd(), `./assets/full/${filename}.jpg`));
     }

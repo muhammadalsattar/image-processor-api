@@ -10,17 +10,10 @@
 
 ### Usage
 
-#### After cloning project, run `npm i` to install project dependencies
-#### use `npm run build` to build project js code
-#### use `npm run start` to start server
-
-<hr>
-
-### Routes
-
 `localhost:3000/images/:image`
-#### this endpoint renders your image if it exists
 
+#### this command renders your image
 
-`localhost:3000/images/:image?width=&height=`
-#### this endpoint processes your image then save it to local machine to `assets/thumbnail/` directory
+`localhost:3000/images/:image?width=0&height=0`
+
+#### this command processes your image and save it to local machine
