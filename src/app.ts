@@ -25,7 +25,7 @@ app.get('/images/:filename', async (req: express.Request, res: express.Response)
     }
 
     if (!width && !height) {
-        res.sendFile(path.join(process.cwd(), `./assets/full/${filename}.jpg`))
+        return res.sendFile(path.join(process.cwd(), `./assets/full/${filename}.jpg`))
     }
 
     const filePath: string = path.join(
@@ -37,7 +37,7 @@ app.get('/images/:filename', async (req: express.Request, res: express.Response)
         res.sendFile(filePath)
     } catch (e) {
         await resize(filename, width, height)
-        res.sendFile(filePath)
+        return res.sendFile(filePath)
     }
 })
 
