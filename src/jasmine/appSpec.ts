@@ -15,8 +15,8 @@ describe('App endpoints scenarios', (): void => {
         expect(response.status).toBe(404)
     })
     it('Should response with 200 given a valid filename', async (): Promise<void> => {
-        const response = request.get('/images/fjord?width=300&height=200')
-        await expectAsync(response).toBeResolved();
+        const response = await request.get('/images/fjord')
+        expect(response.status).toBe(200);
     })
     it('Should response with the correct file for the rest of the routes', async (): Promise<void> => {
         const response = await request.get('/*')
