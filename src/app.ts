@@ -6,11 +6,11 @@ import resize from './utilities/resize'
 const app = express()
 const port = process.env.PORT || 3000
 
-app.get('/', (req, res): void => {
+app.get('/', (req: express.Request, res: express.Response): void => {
     res.sendFile(path.join(process.cwd(), './public/index.html'))
 })
 
-app.get('/images/:filename', async (req, res): Promise<void> => {
+app.get('/images/:filename', async (req: express.Request, res: express.Response): Promise<void> => {
     const filename: string = req.params.filename
     const width: number = parseInt(req.query.width as unknown as string)
     const height: number = parseInt(req.query.height as unknown as string)
@@ -41,7 +41,7 @@ app.get('/images/:filename', async (req, res): Promise<void> => {
     }
 })
 
-app.get('/*', (req, res): void => {
+app.get('/*', (req: express.Request, res: express.Response): void => {
     res.sendFile(path.join(process.cwd(), './public/404.html'))
 })
 
