@@ -12,7 +12,7 @@
 - After downloading prject, run `npm i` to install all dependencies.
 - run `npm run build` to build project es code.
 - run `npm run start` to start up the server
-- run `npm run test` to run test suits
+- run `npm run build` then run `npm run test` to run test suits
 - run `npm run prettier` to start prettier check
 - run `npm run eslint` to start eslint check
 
